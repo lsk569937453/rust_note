@@ -4,7 +4,7 @@
 ## 好用的工具
 
 ### 工程相关
-[cross](https://github.com/cross-rs/cross):跨平台编译，甚至在github actions也可以直接用[cross](houseabsolute/actions-rust-cross@v0)。
+[cross](https://github.com/cross-rs/cross):跨平台编译，甚至在github actions也可以直接用[cross](https://github.com/houseabsolute/actions-rust-cross)。
 
 [tarpaulin](https://github.com/xd009642/tarpaulin):单元测试覆盖率。
 
@@ -55,7 +55,9 @@
 - [1brc](https://github.com/gunnarmorling/1brc/discussions/57)
 
 ####  tokio::sync::Mutex性能很低。
-常用场景:我看tokio里面有Mutex我就直接用了，没想那么多。这个Mutex的性能很低，相比std::sync::Mutex性能低一倍以上。如果对性能敏感的应用可以直接在异步运行时中使用std::sync::Mutex。感兴趣的可以看一下tokio的关于Mutex的[文档](https://github.com/tokio-rs/tokio/blob/tokio-1.38.0/tokio/src/sync/mutex.rs#L24)。压测的程序在[这里](https://rustcc.cn/article?id=7841ed4a-fb33-4558-aa00-f45890a4f3eb).但是在异步运行时中使用std的Mutex时需要注意的原则是“锁保护的代码段不跨越await”。
+常用场景:我看tokio里面有Mutex我就直接用了，没想那么多。
+
+这个Mutex的性能很低，相比std::sync::Mutex性能低一倍以上。如果对性能敏感的应用可以直接在异步运行时中使用std::sync::Mutex。感兴趣的可以看一下tokio的关于Mutex的[文档](https://github.com/tokio-rs/tokio/blob/tokio-1.38.0/tokio/src/sync/mutex.rs#L24)。压测的程序在[这里](https://rustcc.cn/article?id=7841ed4a-fb33-4558-aa00-f45890a4f3eb).但是在异步运行时中使用std的Mutex时需要注意的原则是“锁保护的代码段不跨越await”。
 
 #### 收集到的释放锁的方式。
 - 使用drop关键字释放锁
