@@ -27,6 +27,8 @@
 
 [openssl](https://docs.rs/openssl/latest/openssl/):openssl相关，由于很多crate是基于openssl的，一般都是作为vendor引入编译的时候直接一起编译。
 
+[nom](https://github.com/rust-bakery/nom):nom是一个开源的语法解析器。如果要做json/sql/xml/yaml解析，可以用nom   。
+
 ## 一些常见的问题和反直觉
 ### 一些常见的问题
 #### 我不会生命周期，看了'a,'static,&'static,T: 'a 头疼怎么办？
